@@ -21,6 +21,11 @@ function App() {
               path="/" 
               element={<Home />}
             />
+            {/* Route for Login page */}
+            <Route
+              path="/login"
+              element={<Login />}
+            />
             <Route 
               path="/matchup" 
               element={<Matchup />}

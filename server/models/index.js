@@ -1,4 +1,4 @@
-const Product = require('./Product');
-const List = require('./List');
+const Product = require('./List');
+const List = require('./Product');
 
 module.exports = { Product, List};

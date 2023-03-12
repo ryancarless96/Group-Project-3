@@ -1,24 +1,13 @@
 const { Schema, model } = require('mongoose');
 
-const matchupSchema = new Schema({
-  tech1: {
+const productSchema = new Schema({
+  name: {
     type: String,
     required: true,
-  },
-  tech2: {
-    type: String,
-    required: true,
-  },
-  tech1_votes: {
-    type: Number,
-    default: 0,
-  },
-  tech2_votes: {
-    type: Number,
-    default: 0,
+    unique: true,
   },
 });
 
-const Matchup = model('Matchup', matchupSchema);
+const Product = model('Product', productSchema);
 
-module.exports = Matchup;
+module.exports = Product;

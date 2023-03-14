@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_MATCHUPS } from '../utils/queries';
+import { QUERY_MATCHES } from '../utils/queries';
 
 const Login = () => {
-  const { loading, data } = useQuery(QUERY_MATCHUPS, {
+  const { loading, data } = useQuery(QUERY_MATCHES, {
     fetchPolicy: "no-cache"
   });
 
-  const matchupList = data?.matchups || [];
+  const matchList = data?.matches || [];
 
   return (
     <div className="card bg-white card-rounded w-50">
@@ -15,16 +15,16 @@ const Login = () => {
         <h1>Log In</h1>
       </div>
       <div className="card-body m-5">
-        <h2>Here is a list of matchups you can vote on:</h2>
+        <h2>Here is a list of matches you can vote on:</h2>
         {loading ? (
           <div>Loading...</div>
         ) : (
           <ul className="square">
-            {matchupList.map((matchup) => {
+            {matchList.map((matches) => {
               return (
-                <li key={matchup._id}>
-                  <Link to={{ pathname: `/matchup/${matchup._id}` }}>
-                    {matchup.tech1} vs. {matchup.tech2}
+                <li key={matches._id}>
+                  <Link to={{ pathname: `/matchup/${matches._id}` }}>
+                    {matches.product1} vs. {matches.product2}
                   </Link>
                 </li>
               );
@@ -33,9 +33,9 @@ const Login = () => {
         )}
       </div>
       <div className="card-footer text-center m-3">
-        <h2>Ready to create a new matchup?</h2>
-        <Link to="/matchup">
-          <button className="btn btn-lg btn-danger">Create Matchup!</button>
+        <h2>Ready to create a new match?</h2>
+        <Link to="/matches">
+          <button className="btn btn-lg btn-danger">Create Match!</button>
         </Link>
       </div>
     </div>

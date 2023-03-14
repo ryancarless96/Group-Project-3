@@ -6,7 +6,7 @@ const typeDefs = gql`
     name: String!
   }
 
-  type List {
+  type Match {
     _id: ID!
     product1: String!
     product2: String!
@@ -16,12 +16,12 @@ const typeDefs = gql`
 
   type Query {
     product: [Product]
-    lists(_id: String): [List]
+    matches(_id: String): [Match]
   }
 
   type Mutation {
-    createList(product1: String!, product2: String!): List
-    createVote(_id: String!, productNum: Int!): List
+    createMatch (product1: String!, product2: String!):Match
+    createVote(_id: String!, productNum: Int!):Match
   }
 `;
 

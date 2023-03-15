@@ -27,7 +27,7 @@ const Vote = () => {
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
-        <h1>Here is the match!</h1>
+        <h1>Here is your match!</h1>
       </div>
       {loading ? (
         <div>Loading...</div>

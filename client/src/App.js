@@ -17,8 +17,8 @@ function App() {
       <Router>
         <div className="flex-column justify-center align-center min-100-vh bg-primary">
           <Routes>
-            <Route 
-              path="/" 
+            <Route
+              path="/"
               element={<Home />}
             />
             {/* Route for Login page */}
@@ -26,15 +26,15 @@ function App() {
               path="/login"
               element={<Login />}
             />
-            <Route 
-              path="/matches" 
+            <Route
+              path="/matches"
               element={<Match />}
             />
-            <Route 
-              path="/matches/:id" 
+            <Route
+              path="/matches/:id"
               element={<Vote />}
             />
-            <Route 
+            <Route
               path="*"
               element={<NotFound />}
             />

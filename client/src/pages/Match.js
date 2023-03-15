@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_PRODUCT } from '../utils/queries';
-import { CREATE_MATCH } from '../utils/mutations';
+import { CREATE_MATCHES } from '../utils/mutations';
 
 const Match = () => {
   const { loading, data } = useQuery(QUERY_PRODUCT);
@@ -15,7 +15,7 @@ const Match = () => {
   });
   let navigate = useNavigate();
 
-  const [createMatch, { error }] = useMutation(CREATE_MATCH);
+  const [createMatch, { error }] = useMutation(CREATE_MATCHES);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;

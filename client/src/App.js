@@ -23,8 +23,8 @@ function App() {
             />
             {/* Route for Login page */}
             <Route
-              path="/login"
-              element={<Login />}
+              path="/Login"
+              element={<login />}
             />
             <Route
               path="/matches"

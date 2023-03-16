@@ -5,7 +5,7 @@ import { QUERY_PRODUCT } from '../utils/queries';
 import { CREATE_MATCHES } from '../utils/mutations';
 
 const Match = () => {
-  const { loading, data } = useQuery(QUERY_PRODUCT);
+  const { loading, data } = useQuery(QUERY_PRODUCT );
 
   const productList = data?.product || [];
 

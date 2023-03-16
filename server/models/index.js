@@ -1,4 +1,4 @@
-const Product = require('./List');
-const List = require('./Product');
+const Product = require('./Product');
+const Match = require('./Match');
 
-module.exports = { Product, List};
+module.exports = { Product, Match};

@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Home from './pages/Home';
-import Matchup from './pages/Matchup';
+import Match from './pages/Match';
 import Vote from './pages/Vote';
 import NotFound from './pages/NotFound';
 
@@ -17,24 +17,24 @@ function App() {
       <Router>
         <div className="flex-column justify-center align-center min-100-vh bg-primary">
           <Routes>
-            <Route 
-              path="/" 
+            <Route
+              path="/"
               element={<Home />}
             />
             {/* Route for Login page */}
             <Route
-              path="/login"
-              element={<Login />}
+              path="/Login"
+              element={<login />}
             />
-            <Route 
-              path="/matchup" 
-              element={<Matchup />}
+            <Route
+              path="/matches"
+              element={<Match />}
             />
-            <Route 
-              path="/matchup/:id" 
+            <Route
+              path="/matches/:id"
               element={<Vote />}
             />
-            <Route 
+            <Route
               path="*"
               element={<NotFound />}
             />

@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
-import { QUERY_TECH } from '../utils/queries';
-import { CREATE_MATCHUP } from '../utils/mutations';
+import { QUERY_PRODUCT } from '../utils/queries';
+import { CREATE_MATCHES } from '../utils/mutations';
 
-const Matchup = () => {
-  const { loading, data } = useQuery(QUERY_TECH);
+const Match = () => {
+  const { loading, data } = useQuery(QUERY_PRODUCT );
 
-  const techList = data?.tech || [];
+  const productList = data?.product || [];
 
   const [formData, setFormData] = useState({
-    tech1: 'JavaScript',
-    tech2: 'JavaScript',
+    product1: 'JavaScript',
+    product2: 'JavaScript',
   });
   let navigate = useNavigate();
 
-  const [createMatchup, { error }] = useMutation(CREATE_MATCHUP);
+  const [createMatch, { error }] = useMutation(CREATE_MATCHES);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -26,53 +26,53 @@ const Matchup = () => {
     event.preventDefault();
 
     try {
-      const { data } = await createMatchup({
+      const { data } = await createMatch({
         variables: { ...formData },
       });
 
-      navigate(`/matchup/${data.createMatchup._id}`);
+      navigate(`/match/${data.createMatch._id}`);
     } catch (err) {
       console.error(err);
     }
 
     setFormData({
-      tech1: 'JavaScript',
-      tech2: 'JavaScript',
+      product1: 'JavaScript',
+      product2: 'JavaScript',
     });
   };
 
   return (
     <div className="card bg-white card-rounded w-25">
       <div className="card-header bg-dark text-center">
-        <h1>Let's create a matchup!</h1>
+        <h1>Let's create a match!</h1>
       </div>
       <div className="card-body m-5">
         {loading ? (
           <div>Loading...</div>
         ) : (
           <form onSubmit={handleFormSubmit}>
-            <label>Tech 1: </label>
-            <select name="tech1" onChange={handleInputChange}>
-              {techList.map((tech) => {
+            <label>Product 1: </label>
+            <select name="product1" onChange={handleInputChange}>
+              {productList.map((product) => {
                 return (
-                  <option key={tech._id} value={tech.name}>
-                    {tech.name}
+                  <option key={product._id} value={product.name}>
+                    {product.name}
                   </option>
                 );
               })}
             </select>
-            <label>Tech 2: </label>
-            <select name="tech2" onChange={handleInputChange}>
-              {techList.map((tech) => {
+            <label>Product 2: </label>
+            <select name="product2" onChange={handleInputChange}>
+              {productList.map((product) => {
                 return (
-                  <option key={tech._id} value={tech.name}>
-                    {tech.name}
+                  <option key={product._id} value={product.name}>
+                    {product.name}
                   </option>
                 );
               })}
             </select>
             <button className="btn btn-danger" type="submit">
-              Create Matchup!
+              Create Match!
             </button>
           </form>
         )}
@@ -82,4 +82,4 @@ const Matchup = () => {
   );
 };
 
-export default Matchup;
+export default Match;

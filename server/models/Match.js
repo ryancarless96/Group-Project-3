@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const listSchema = new Schema({
+const matchSchema = new Schema({
   product1: {
     type: String,
     required: true,
@@ -19,6 +19,6 @@ const listSchema = new Schema({
   },
 });
 
-const List = model('List', listSchema);
+const Match = model('Match', matchSchema);
 
-module.exports = List;
+module.exports = Match;
